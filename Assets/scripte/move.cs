@@ -19,6 +19,7 @@ public class move : MonoBehaviour
             //Feed moveDirection with input.
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
+        
             //Multiply it by speed.
             moveDirection *= speed;
             //Jumping
@@ -30,6 +31,7 @@ public class move : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         //Making the character move
         controller.Move(moveDirection * Time.deltaTime);
+        controller.transform.Rotate(0f,Input.GetAxis("Mouse X"),0f,Space.Self);
     
 }
 }
